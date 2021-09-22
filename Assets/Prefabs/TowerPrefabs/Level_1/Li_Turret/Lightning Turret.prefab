@@ -40,9 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1062120108825647957}
   - component: {fileID: 1062120108825647958}
-  - component: {fileID: 8398502681012016461}
-  - component: {fileID: 2339556683055375750}
-  - component: {fileID: 8131706646649546846}
+  - component: {fileID: 2873095115022947437}
+  - component: {fileID: 8984984745531030535}
   m_Layer: 0
   m_Name: Lightning Turret
   m_TagString: Untagged
@@ -117,29 +116,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8398502681012016461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1062120108825647977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6f714135cf5c3b4fb2db0373c5cf101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 10
-  fireRate: 0.1
-  enemyTag: Enemy
-  PartToRotate: {fileID: 5136899248492484866}
-  firepoint: {fileID: 5574781493843639867}
-  turnspeed: 10
-  bulletprefab: {fileID: 0}
-  ps: {fileID: 0}
-  Damage: 5
-  DamageTicks: 3
---- !u!120 &2339556683055375750
+--- !u!120 &2873095115022947437
 LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,8 +166,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.05263131
+        time: 0.14157985
+        value: 0.24561474
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -237,7 +214,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &8131706646649546846
+--- !u!114 &8984984745531030535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,9 +226,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb4d413de9f1d541915329635c9f2bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 5
+  fireRate: 0.1
+  enemyTag: Enemy
+  PartToRotate: {fileID: 5136899248492484866}
+  firepoint: {fileID: 5574781493843639867}
+  turnspeed: 10
+  bulletprefab: {fileID: 0}
+  ps: {fileID: 0}
+  Damage: 5
+  DamageTicks: 3
   StartObject: {fileID: 1001744548576833828}
   StartPosition: {x: 0, y: 0, z: 0}
-  EndObject: {fileID: 0}
   EndPosition: {x: 0, y: 0, z: 0}
   Generations: 6
   Duration: 0.05

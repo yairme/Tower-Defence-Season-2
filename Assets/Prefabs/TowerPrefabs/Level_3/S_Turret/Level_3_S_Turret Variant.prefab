@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3152450285262859977, guid: 04cfe9385e926634fb855b26ccaaf1e9, type: 3}
       propertyPath: range
-      value: 20
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3152450285262859977, guid: 04cfe9385e926634fb855b26ccaaf1e9, type: 3}
       propertyPath: bulletprefab

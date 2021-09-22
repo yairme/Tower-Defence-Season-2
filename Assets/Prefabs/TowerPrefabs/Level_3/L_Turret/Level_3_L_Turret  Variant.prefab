@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4860242320317787607, guid: fe6b903d48e220a49b6c2f4001a9cc3d, type: 3}
       propertyPath: range
-      value: 20
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4860242320317787607, guid: fe6b903d48e220a49b6c2f4001a9cc3d, type: 3}
       propertyPath: damageOverTime

@@ -9,7 +9,7 @@ public class Turret : Blueprint
       InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
     // Update is called once per frame
-    public void UpdateTarget ()
+    public void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
 
@@ -35,7 +35,7 @@ public class Turret : Blueprint
         }
     }
 
-    public void OnDrawGizmoSelected ()
+    public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position, range);
