@@ -7,9 +7,8 @@ public class Blueprint : MonoBehaviour
     protected Transform target;
 
     [Header("Attributes")]
-    public float range;
-    public float fireRate;
-    protected float fireCountdown;
+    public float range, fireRate;
+    protected float fireCountdown, damageOvertime;
 
     [Header("Unity Setup Fields")]
 

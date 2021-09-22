@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 35331265381203825}
   - component: {fileID: 84302198421718786}
   - component: {fileID: 8253717131030894679}
+  - component: {fileID: -1868838496019000240}
+  - component: {fileID: 6332380470785208966}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -73,8 +75,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemiesAlive: 0
-  waves: []
+  waves:
+  - count: 0
+    rate: 0
+    enemy:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - count: 0
+    rate: 0
+    enemy: []
+  - count: 0
+    rate: 0
+    enemy: []
+  - count: 0
+    rate: 0
+    enemy: []
+  - count: 0
+    rate: 0
+    enemy: []
   spawnPoint: {fileID: 5906079868403966395, guid: b17df53115040e24791ac91ac958c8c1, type: 3}
   timeBetweenWaves: 10
   waveCountDownText: {fileID: 0}
   waveNumber: 0
+--- !u!114 &-1868838496019000240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4272967072352360368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7333d9bc3e1941c47bbe4a887a3fa478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instance: {fileID: 0}
+  i: 0
+  Bal: 0
+  standardturret: {fileID: 0}
+  laserturret: {fileID: 0}
+  Missileturret: {fileID: 0}
+--- !u!114 &6332380470785208966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4272967072352360368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2339624567229164bbfff37161d9a5f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopUI: {fileID: 0}
+  build: {fileID: 0}
