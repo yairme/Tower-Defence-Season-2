@@ -9,16 +9,7 @@ public class ChainLightning : Turret
     public ParticleSystem ps;
     public float Damage, DamageTicks;
 
-    protected void LightningUpdate()
-    {
-        if (fireCountdown <= 0f)
-        {
-            StartCoroutine(DamageTick());
-            fireCountdown = 0.5f / fireRate;
-        }
-        fireCountdown -= Time.deltaTime;
-    }
-    IEnumerator DamageTick()
+    public IEnumerator DamageTick()
     {
         int counter = 0;
 

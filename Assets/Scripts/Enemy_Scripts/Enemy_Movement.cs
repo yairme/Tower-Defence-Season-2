@@ -18,7 +18,7 @@ public class Enemy_Movement : MonoBehaviour
 
     public void Start()
     {
-        WP = GameObject.FindWithTag("WayPoints").GetComponent<WayPoints>();
+        WP = GameObject.FindWithTag("WP").GetComponent<WayPoints>();
         WS = GameObject.FindWithTag("GM").GetComponent<WaveSpawner>();
         ST = GameObject.FindWithTag("GM").GetComponent<PlayerStats>();
 
@@ -38,7 +38,7 @@ public class Enemy_Movement : MonoBehaviour
         }
         else
         {
-            WP = GameObject.FindWithTag("WayPoints").GetComponent<WayPoints>();
+            WP = GameObject.FindWithTag("WP").GetComponent<WayPoints>();
             target = WP.wpoints[0];
         }
 

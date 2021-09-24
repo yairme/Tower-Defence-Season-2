@@ -18,7 +18,7 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 10f;
     private float countdown = 6f;
 
-    public Text waveCountDownText;
+    //public Text waveCountDownText;
     
     [HideInInspector]public int waveNumber = 0;
 
@@ -53,7 +53,7 @@ public class WaveSpawner : MonoBehaviour
 
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-        waveCountDownText.text = string.Format("{0:00.00}", countdown);
+        //waveCountDownText.text = string.Format("{0:00.00}", countdown);
     }
 
     IEnumerator SpawnWave()

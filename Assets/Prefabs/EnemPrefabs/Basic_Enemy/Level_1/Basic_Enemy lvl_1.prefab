@@ -185,6 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7823449718504172770}
   - component: {fileID: 7823449718504172769}
+  - component: {fileID: 563476482187889200}
   - component: {fileID: 2930157901839373566}
   m_Layer: 0
   m_Name: Basic_Enemy lvl_1
@@ -226,6 +227,20 @@ MonoBehaviour:
   startHealth: 75
   value: 10
   healthBar: {fileID: 5856545988138714175}
+--- !u!114 &563476482187889200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7823449718504172772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64772f60c1d0214ca952b715176e081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EN: {fileID: 0}
+  eulerAngZ: 0
 --- !u!58 &2930157901839373566
 CircleCollider2D:
   m_ObjectHideFlags: 0

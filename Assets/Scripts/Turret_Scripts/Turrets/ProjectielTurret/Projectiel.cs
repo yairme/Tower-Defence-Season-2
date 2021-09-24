@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectiel : Rotating
+public class Projectiel : Turret
 {
     void Update()
     {
+        Vector3 dir = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(PartToRotate.rotation, lookRotation, Time.deltaTime * turnspeed).eulerAngles;
+        PartToRotate.rotation = Quaternion.Euler(0f, 0f, rotation.z);
+
         if (fireCountdown <= 0f)
         {
             Shoot();
@@ -17,7 +22,7 @@ public class Projectiel : Rotating
     public void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletprefab, firepoint.position, firepoint.rotation);
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
+        Bullet_BP bullet = bulletGO.GetComponent<Bullet_BP>();
 
         if (bullet != null)
             bullet.Seek(target);

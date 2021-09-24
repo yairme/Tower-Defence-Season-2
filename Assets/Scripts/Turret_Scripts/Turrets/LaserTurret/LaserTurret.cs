@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LaserTurret : Rotating
+public class LaserTurret : Turret
 {
     private Enemy_AI targetEnemy;
 

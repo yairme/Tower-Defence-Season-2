@@ -15,15 +15,6 @@ namespace DigitalRuby.LightningBolt
     public class LightningBoltScript : ChainLightning
     {
         [Header("LineRendere Fields")]
-        [Tooltip("The game object where the lightning will emit from. If null, StartPosition is used.")]
-        public GameObject StartObject;
-
-        [Tooltip("The start position where the lightning will emit from. This is in world space if StartObject is null, otherwise this is offset from StartObject position.")]
-        public Vector3 StartPosition;
-
-        [Tooltip("The end position where the lightning will end at. This is in world space if EndObject is null, otherwise this is offset from EndObject position.")]
-        public Vector3 EndPosition;
-
         [Range(0, 8)]
         [Tooltip("How manu generations? Higher numbers create more line segments.")]
         public int Generations = 6;
@@ -258,6 +249,7 @@ namespace DigitalRuby.LightningBolt
 
         private void Start()
         {
+            InvokeRepeating("Trigger", 0f, 0.5f);
             orthographic = (Camera.main != null && Camera.main.orthographic);
             lineRenderer = GetComponent<LineRenderer>();
             lineRenderer.positionCount = 0;
@@ -287,27 +279,35 @@ namespace DigitalRuby.LightningBolt
         /// </summary>
         public void Trigger()
         {
-            Vector3 start, end;
-            timer = Duration + Mathf.Min(0.0f, timer);
-            if (StartObject == null)
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+
+            float ShortestDistance = Mathf.Infinity;
+
+            GameObject nearestEnemy = null;
+            foreach (GameObject enemy in enemies)
             {
-                start = StartPosition;
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy < ShortestDistance)
+                {
+                    ShortestDistance = distanceToEnemy;
+                    nearestEnemy = enemy;
+                }
+            }
+            if (nearestEnemy != null && ShortestDistance <= range / 1)
+            {
+                target = nearestEnemy.transform;
+                if (!lineRenderer.enabled)
+                    lineRenderer.enabled = true;
+                StartCoroutine(DamageTick());
             }
             else
             {
-                start = StartObject.transform.position + StartPosition;
+                target = null;
+                if (!lineRenderer.enabled)
+                    lineRenderer.enabled = false;
             }
-            if (target == null)
-            {
-                end = EndPosition;
-            }
-            else
-            {
-                end = target.position;
-                LightningUpdate();
-            }
-            startIndex = 0;
-            GenerateLightningBolt(start, end, Generations, Generations, 0.0f);
+
+            GenerateLightningBolt(firepoint.position, target.position, Generations, Generations, 0.0f);
             UpdateLineRenderer();
         }
 

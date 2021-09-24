@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6332380470785208966}
   m_Layer: 0
   m_Name: GameMaster
-  m_TagString: Untagged
+  m_TagString: GM
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,19 +76,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemiesAlive: 0
   waves:
-  - count: 0
-    rate: 0
+  - count: 10
+    rate: 2
     enemy:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 7823449718504172772, guid: ddaeb0a2dd97d8b45945f979d2a348a3, type: 3}
   - count: 0
     rate: 0
     enemy: []
@@ -101,9 +92,8 @@ MonoBehaviour:
   - count: 0
     rate: 0
     enemy: []
-  spawnPoint: {fileID: 5906079868403966395, guid: b17df53115040e24791ac91ac958c8c1, type: 3}
+  spawnPoint: {fileID: 0}
   timeBetweenWaves: 10
-  waveCountDownText: {fileID: 0}
   waveNumber: 0
 --- !u!114 &-1868838496019000240
 MonoBehaviour:
