@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    protected Enemy_AI targetEnemy;
     protected Transform target;
 
     [Header("Attributes")]
@@ -18,11 +19,11 @@ public class Turret : MonoBehaviour
     [Header("Setup Fields")]
     public Transform PartToRotate;
     public Transform firepoint;
-    public float turnspeed = 10f;
     public GameObject bulletprefab;
     public void Start()
-    { 
-      InvokeRepeating("UpdateTarget", 0f, 0.5f);
+    {
+
+        InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
     // Update is called once per frame
     public void UpdateTarget()
@@ -44,11 +45,20 @@ public class Turret : MonoBehaviour
         if (nearestEnemy != null && ShortestDistance <= range / 1)
         {
             target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<Enemy_AI>();
         }
         else
         {
             target = null;
         }
+    }
+
+    public void LockOnTarget()
+    {
+        if (target == null)
+            return;
+        PartToRotate.transform.right = target.position - transform.position;
+        Debug.DrawLine(transform.position, target.position);
     }
 
     public void OnDrawGizmosSelected()

@@ -46,13 +46,14 @@ public class Bullet_BP : MonoBehaviour
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         transform.LookAt(target);
+        transform.right = target.position - transform.position;
     }
 
     protected void HitTarget()
     {
         if (Explosion > 0)
         {
-        Explode(transform.position, Explosion);
+            Explode(transform.position, Explosion);
         }
         else
         {

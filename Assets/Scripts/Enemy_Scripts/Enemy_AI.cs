@@ -52,7 +52,7 @@ public class Enemy_AI : MonoBehaviour
     {
         ST.Money += value;
         WS.EnemiesAlive--;
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 }
 

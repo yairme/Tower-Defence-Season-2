@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class LaserTurret : Turret
 {
-    private Enemy_AI targetEnemy;
-
     public LineRenderer lineRenderer;
 
     public int damageOverTime = 30;
     public float slowPct = .5f;
 
-    public void UpdateLaser()
+    private void Update()
     {
         if (target == null)
         {
             if (lineRenderer.enabled)
                 lineRenderer.enabled = false;
             return;
-        } 
+        }
+
+        LockOnTarget();
         Laser();
     }
 

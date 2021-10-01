@@ -4,20 +4,32 @@ using UnityEngine;
 
 public class ChainLightning : Turret
 {
-    private Enemy_AI targetEnemy;
     [Header("Lightning Tower Atributes")]
     public ParticleSystem ps;
     public float Damage, DamageTicks;
 
+    private void Update()
+    {
+        if (target == null)
+            return;
+
+        LockOnTarget();
+        if (fireCountdown <= 0f)
+        {
+            StartCoroutine(DamageTick());
+            fireCountdown = 1f / fireRate;
+        }
+        fireCountdown -= Time.deltaTime;
+    }
     public IEnumerator DamageTick()
     {
         int counter = 0;
 
         while (counter < DamageTicks)
         {
-            targetEnemy.TakeDamage(Damage * Time.deltaTime);
+            targetEnemy.TakeDamage(Damage);
             counter++;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(2f);
         }
     }
 }

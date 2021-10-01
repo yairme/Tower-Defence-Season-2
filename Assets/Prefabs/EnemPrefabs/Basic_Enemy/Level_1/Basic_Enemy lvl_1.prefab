@@ -205,7 +205,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 9009409200222694628}
+  - {fileID: 6735223181986839504}
   - {fileID: 4934013102765929184}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -257,7 +257,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
---- !u!1001 &9013937603062448292
+--- !u!1001 &6730761989841688464
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -318,8 +318,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ef89b7061fa5ef40be57d4922e96853, type: 3}
---- !u!4 &9009409200222694628 stripped
+--- !u!4 &6735223181986839504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4549310921976896, guid: 9ef89b7061fa5ef40be57d4922e96853, type: 3}
-  m_PrefabInstance: {fileID: 9013937603062448292}
+  m_PrefabInstance: {fileID: 6730761989841688464}
   m_PrefabAsset: {fileID: 0}
