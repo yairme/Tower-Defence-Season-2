@@ -13,8 +13,8 @@ public class Enemy_AI : MonoBehaviour
     [HideInInspector]
     public float speed;
 
-    public float startHealth = 100f;
-    private float health;
+    public float health;
+    private float startHealth = 100f;
 
     public int value;
 
@@ -28,16 +28,16 @@ public class Enemy_AI : MonoBehaviour
         ST = GameObject.FindWithTag("GM").GetComponent<PlayerStats>();
 
         speed = startSpeed;
-        health = startHealth;
+        startHealth = health;
     }
 
     public void TakeDamage (float amount)
     {
-        health -= amount;
+        startHealth -= amount;
 
-        healthBar.fillAmount = health / startHealth;
+        healthBar.fillAmount = startHealth / health;
         
-        if (health <= 0)
+        if (startHealth <= 0)
         {
             Die();
         }
@@ -52,7 +52,7 @@ public class Enemy_AI : MonoBehaviour
     {
         ST.Money += value;
         WS.EnemiesAlive--;
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
 

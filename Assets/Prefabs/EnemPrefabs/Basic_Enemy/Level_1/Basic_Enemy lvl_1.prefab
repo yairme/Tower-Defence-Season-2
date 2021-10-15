@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 3.5
   speed: 0
-  startHealth: 75
+  health: 100
   value: 10
   healthBar: {fileID: 5856545988138714175}
 --- !u!114 &563476482187889200

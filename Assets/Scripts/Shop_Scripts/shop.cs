@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class shop : MonoBehaviour
 {
-    private PlayerStats ST;
-    private buildmanager BM;
-    private Placement PS;
+    protected PlayerStats ST;
+    protected buildmanager BM;
+    protected Placement PS;
+
+    [Header("If there's not enough money.")]
+    public GameObject noMoney;
+
+    [Header("Is the turret there.")]
+    public bool isTurret = false;
 
     [HideInInspector] public GameObject turret;
 
     [HideInInspector] public int returnMoneyB = 0;
     [HideInInspector] public int returnMoney;
+
+    protected float timer = 1;
 
     public void Start()
     {
@@ -19,6 +27,14 @@ public class shop : MonoBehaviour
         BM = GameObject.FindWithTag("GM").GetComponent<buildmanager>();
         ST = GameObject.FindWithTag("GM").GetComponent<PlayerStats>();
         returnMoney = returnMoneyB;
+    }
+
+    public void Update()
+    {
+        if(timer > 0)
+            timer -= Time.deltaTime;
+        else
+            noMoney.SetActive(false);
     }
     public void Placestandard()
     {
@@ -30,13 +46,14 @@ public class shop : MonoBehaviour
         if (ST.Money > 149)
         {
             BM.Bal = true;
+            isTurret = true;
             BM.SetTurretToBuild(BM.standardturret);
             ST.Money -= 150;
             returnMoney = 150;
         }
         else if (ST.Money < 149)
         {
-            RenderColor();
+            NotenoughMoney();
         }
     }
 
@@ -50,13 +67,14 @@ public class shop : MonoBehaviour
         if (ST.Money > 199)
         {
             BM.Bal = true;
+            isTurret = true;
             BM.SetTurretToBuild(BM.laserturret);
             ST.Money -= 200;
             returnMoney = 200;
         }
         else if (ST.Money <= 199)
         {
-            RenderColor();
+            NotenoughMoney();
         }
     }
 
@@ -70,19 +88,41 @@ public class shop : MonoBehaviour
         if (ST.Money > 299)
         {
             BM.Bal = true;
+            isTurret = true;
             BM.SetTurretToBuild(BM.Missileturret);
             ST.Money -= 300;
             returnMoney = 300;
         }
         else if (ST.Money <= 299)
         {
-            RenderColor();
+            NotenoughMoney();
         }
     }
 
-    void RenderColor()
+    public void PlaceLightning()
     {
-        PS.rend.material.color = Color.red;
-        PS.rend.material.color = PS.startcolor;
+        if (PS == null)
+        {
+            PS = GameObject.FindGameObjectWithTag("Grid").GetComponent<Placement>();
+        }
+
+        if (ST.Money > 275)
+        {
+            BM.Bal = true;
+            isTurret = true;
+            BM.SetTurretToBuild(BM.Lightningturret);
+            ST.Money -= 275;
+            returnMoney = 275;
+        }
+        else if (ST.Money <= 274)
+        {
+            NotenoughMoney();
+        }
+    }
+
+    public void NotenoughMoney()
+    {
+        timer = 3;
+        noMoney.SetActive(true);
     }
 }

@@ -8,6 +8,28 @@ public class buildmanager : MonoBehaviour
     public bool i;
 
     public bool Bal = false;
+    protected PlayerStats ST;
+    protected buildmanager BM;
+    protected shop SH;
+    public GameObject upGrade;
+
+    [Header("Level_1")]
+    public GameObject standardturret;
+    public GameObject laserturret;
+    public GameObject Missileturret;
+    public GameObject Lightningturret;
+
+    [Header("Level_2")]
+    public GameObject standardturret_2;
+    public GameObject laserturret_2;
+    public GameObject Missileturret_2;
+    public GameObject Lightningturret_2;
+
+    [Header("Level_3")]
+    public GameObject standardturret_3;
+    public GameObject laserturret_3;
+    public GameObject Missileturret_3;
+    public GameObject Lightningturret_3;
 
     public void Awake()
     {
@@ -19,12 +41,12 @@ public class buildmanager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject standardturret;
-    public GameObject laserturret;
-    public GameObject Missileturret;
 
     public void Start()
     {
+        BM = GameObject.FindWithTag("GM").GetComponent<buildmanager>();
+        ST = GameObject.FindWithTag("GM").GetComponent<PlayerStats>();
+        SH = GameObject.FindWithTag("GM").GetComponent<shop>();
         turrettobuild = standardturret;
     }
 

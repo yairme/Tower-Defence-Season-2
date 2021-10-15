@@ -14,6 +14,11 @@ public class ChainLightning : Turret
             return;
 
         LockOnTarget();
+        Lightning();
+    }
+
+    public void Lightning()
+    {
         if (fireCountdown <= 0f)
         {
             StartCoroutine(DamageTick());
@@ -21,6 +26,7 @@ public class ChainLightning : Turret
         }
         fireCountdown -= Time.deltaTime;
     }
+
     public IEnumerator DamageTick()
     {
         int counter = 0;

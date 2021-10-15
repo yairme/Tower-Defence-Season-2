@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - GM
   - WP
+  - Grid
+  - Road
+  - Shop
   layers:
   - Default
   - TransparentFX

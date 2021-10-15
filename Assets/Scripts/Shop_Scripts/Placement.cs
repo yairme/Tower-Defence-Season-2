@@ -28,6 +28,11 @@ public class Placement : MonoBehaviour
 
     public void OnMouseDown()
     {
+        if (turret != null)
+        {
+            BM.upGrade.SetActive(true);
+            return;
+        }
         if (BM.Bal == false)
             return;
         if(BM.instance.Getturrettobuild() == null)
@@ -36,14 +41,12 @@ public class Placement : MonoBehaviour
         }
         if(turret != null)
         {
-            Debug.Log("already build here TODO: display on screen");
             ST.Money += PS.returnMoney;
             PS.returnMoney = PS.returnMoneyB;
             return;
         }
         GameObject TurretToBuild = BM.instance.Getturrettobuild();
         turret = (GameObject)Instantiate(TurretToBuild, transform.position, transform.rotation);
-
     }
     public void OnMouseEnter()
     {

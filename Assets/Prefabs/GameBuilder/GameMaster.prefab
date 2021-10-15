@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 84302198421718786}
   - component: {fileID: 8253717131030894679}
   - component: {fileID: -1868838496019000240}
-  - component: {fileID: 6332380470785208966}
+  - component: {fileID: 6480908126761731125}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: GM
@@ -113,7 +113,16 @@ MonoBehaviour:
   standardturret: {fileID: 0}
   laserturret: {fileID: 0}
   Missileturret: {fileID: 0}
---- !u!114 &6332380470785208966
+  Lightningturret: {fileID: 0}
+  standardturret_2: {fileID: 0}
+  laserturret_2: {fileID: 0}
+  Missileturret_2: {fileID: 0}
+  Lightningturret_2: {fileID: 0}
+  standardturret_3: {fileID: 0}
+  laserturret_3: {fileID: 0}
+  Missileturret_3: {fileID: 0}
+  Lightningturret_3: {fileID: 0}
+--- !u!114 &6480908126761731125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,8 +131,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4272967072352360368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2339624567229164bbfff37161d9a5f8, type: 3}
+  m_Script: {fileID: 11500000, guid: b20b4c85bbc940e44a4cf5b924ee2058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopUI: {fileID: 0}
-  build: {fileID: 0}
+  moneyText: {fileID: 0}
+  liveText: {fileID: 0}
+  Wave: {fileID: 0}

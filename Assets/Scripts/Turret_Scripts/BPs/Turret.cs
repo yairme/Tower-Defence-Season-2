@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    protected Enemy_AI targetEnemy;
     protected Transform target;
+    protected Enemy_AI targetEnemy;
 
     [Header("Attributes")]
     public float range;

@@ -29,7 +29,6 @@ public class MoneyUI : MonoBehaviour
         else
         {
             MN = GameObject.FindWithTag("GM").GetComponent<PlayerStats>();
-        }
-
+        } 
     }
 }

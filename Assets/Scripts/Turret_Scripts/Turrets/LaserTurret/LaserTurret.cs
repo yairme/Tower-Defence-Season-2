@@ -9,7 +9,7 @@ public class LaserTurret : Turret
 
     private void Update()
     {
-        if (target == null)
+        if (targetEnemy == null || target == null)
         {
             if (lineRenderer.enabled)
                 lineRenderer.enabled = false;
