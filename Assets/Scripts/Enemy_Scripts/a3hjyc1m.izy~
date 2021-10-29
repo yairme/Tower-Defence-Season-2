@@ -15,6 +15,8 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 10f;
     private float countdown = 6f;
 
+    //public Text waveCountDownText;
+
     [HideInInspector] public int waveNumber = 0;
 
     public void Start()
@@ -47,20 +49,22 @@ public class WaveSpawner : MonoBehaviour
         countdown -= Time.deltaTime;
 
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+
+        //waveCountDownText.text = string.Format("{0:00.00}", countdown);
     }
 
-    private IEnumerator SpawnWave() 
+    private IEnumerator SpawnWave()
     {
         Wave wave = waves[waveNumber];
 
-        for (int i = 0; i < wave.count / wave.enemy.Length; i++)
+        for (int i = 0; i < wave.count; i++)
         {
             for (int j = 0; j < wave.enemy.Length; j++)
             {
                 SpawnEnemy(wave.enemy[j]);
-                yield return new WaitForSeconds(1f / wave.rate);
             }
         }
+
         if (waveNumber >= waves.Length - 1 && EnemiesAlive <= 0)
         {
             LC.Win();

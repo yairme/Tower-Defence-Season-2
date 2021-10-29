@@ -8,16 +8,6 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private GameObject A;
     [SerializeField] private GameObject B;
-    [SerializeField] private GameObject C;
-    [SerializeField] private GameObject D;
-
-    public void NewGame()
-    {
-        A.gameObject.SetActive(true);
-        B.gameObject.SetActive(false);
-        C.gameObject.SetActive(true);
-        D.gameObject.SetActive(false);
-    }
 
     public void Quit()
     {

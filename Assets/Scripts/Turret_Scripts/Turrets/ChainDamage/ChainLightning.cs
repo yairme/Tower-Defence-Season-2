@@ -10,8 +10,10 @@ public class ChainLightning : Turret
 
     private void Update()
     {
-        if (target == null)
+        if (targetEnemy == null || target == null)
+        {
             return;
+        }
 
         LockOnTarget();
         Lightning();

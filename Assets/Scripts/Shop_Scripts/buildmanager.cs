@@ -19,17 +19,6 @@ public class buildmanager : MonoBehaviour
     public GameObject Missileturret;
     public GameObject Lightningturret;
 
-    [Header("Level_2")]
-    public GameObject standardturret_2;
-    public GameObject laserturret_2;
-    public GameObject Missileturret_2;
-    public GameObject Lightningturret_2;
-
-    [Header("Level_3")]
-    public GameObject standardturret_3;
-    public GameObject laserturret_3;
-    public GameObject Missileturret_3;
-    public GameObject Lightningturret_3;
 
     public void Awake()
     {

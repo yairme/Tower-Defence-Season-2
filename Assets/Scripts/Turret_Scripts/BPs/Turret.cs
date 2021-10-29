@@ -53,7 +53,7 @@ public class Turret : MonoBehaviour
         }
     }
 
-    public void LockOnTarget()
+    public virtual void LockOnTarget()
     {
         if (target == null)
             return;

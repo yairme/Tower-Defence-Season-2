@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,13 +5,14 @@ public class GameManager : MonoBehaviour
     public bool gameEnded = false;
 
     private PlayerStats ST;
-    private levelchange LC;
+    private Levelchange LC;
 
     public void Start()
     {
         ST = GameObject.FindWithTag("GM").GetComponent<PlayerStats>();
-        LC = GameObject.FindWithTag("GM").GetComponent<levelchange>();
+        LC = GameObject.FindWithTag("GM").GetComponent<Levelchange>();
     }
+
     public void Update()
     {
         if (gameEnded)
@@ -31,7 +30,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void EndGame()
+    private void EndGame()
     {
         gameEnded = true;
         LC.Lose();

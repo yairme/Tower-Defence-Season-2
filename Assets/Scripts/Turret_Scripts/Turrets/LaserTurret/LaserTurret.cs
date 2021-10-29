@@ -28,7 +28,14 @@ public class LaserTurret : Turret
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
 
-        lineRenderer.SetPosition(1, firepoint.position);
-        lineRenderer.SetPosition(2, target.position);
+        lineRenderer.SetPosition(0, firepoint.position);
+        lineRenderer.SetPosition(1, target.position);
+    }
+    public override void LockOnTarget()
+    {
+        if (target == null)
+            return;
+
+        Debug.DrawLine(transform.position, target.position);
     }
 }

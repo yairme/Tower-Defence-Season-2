@@ -11,9 +11,6 @@ public class shop : MonoBehaviour
     [Header("If there's not enough money.")]
     public GameObject noMoney;
 
-    [Header("Is the turret there.")]
-    public bool isTurret = false;
-
     [HideInInspector] public GameObject turret;
 
     [HideInInspector] public int returnMoneyB = 0;
@@ -46,7 +43,6 @@ public class shop : MonoBehaviour
         if (ST.Money > 149)
         {
             BM.Bal = true;
-            isTurret = true;
             BM.SetTurretToBuild(BM.standardturret);
             ST.Money -= 150;
             returnMoney = 150;
@@ -67,7 +63,6 @@ public class shop : MonoBehaviour
         if (ST.Money > 199)
         {
             BM.Bal = true;
-            isTurret = true;
             BM.SetTurretToBuild(BM.laserturret);
             ST.Money -= 200;
             returnMoney = 200;
@@ -88,7 +83,6 @@ public class shop : MonoBehaviour
         if (ST.Money > 299)
         {
             BM.Bal = true;
-            isTurret = true;
             BM.SetTurretToBuild(BM.Missileturret);
             ST.Money -= 300;
             returnMoney = 300;
@@ -109,7 +103,6 @@ public class shop : MonoBehaviour
         if (ST.Money > 275)
         {
             BM.Bal = true;
-            isTurret = true;
             BM.SetTurretToBuild(BM.Lightningturret);
             ST.Money -= 275;
             returnMoney = 275;
