@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class pauseanim : MonoBehaviour
+public class Pauseanim : MonoBehaviour
 {
-    private pause GM;
+    private Pause GM;
     public GameObject pausetext;
     Animator pausing;
 
     private void Start()
     {
-        GM = GameObject.FindWithTag("GM").GetComponent<pause>();
+        GM = GameObject.FindWithTag("GM").GetComponent<Pause>();
         pausing = pausetext.GetComponent<Animator>();
 
     }

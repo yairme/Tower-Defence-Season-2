@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6477c20cc8f14894584fde2ca4d45536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
+  range: 8
   fireRate: 1
   enemyTag: Enemy
   PartToRotate: {fileID: 0}

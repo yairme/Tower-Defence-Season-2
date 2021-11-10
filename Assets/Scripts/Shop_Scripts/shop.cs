@@ -53,26 +53,6 @@ public class shop : MonoBehaviour
         }
     }
 
-    public void Placelaser()
-    {
-        if (PS == null)
-        {
-            PS = GameObject.FindGameObjectWithTag("Grid").GetComponent<Placement>();
-        }
-
-        if (ST.Money > 199)
-        {
-            BM.Bal = true;
-            BM.SetTurretToBuild(BM.laserturret);
-            ST.Money -= 200;
-            returnMoney = 200;
-        }
-        else if (ST.Money <= 199)
-        {
-            NotenoughMoney();
-        }
-    }
-
     public void Placemissile()
     {
         if (PS == null)
@@ -93,6 +73,26 @@ public class shop : MonoBehaviour
         }
     }
 
+    public void Placelaser()
+    {
+        if (PS == null)
+        {
+            PS = GameObject.FindGameObjectWithTag("Grid").GetComponent<Placement>();
+        }
+
+        if (ST.Money > 199)
+        {
+            BM.Bal = true;
+            BM.SetTurretToBuild(BM.laserturret);
+            ST.Money -= 200;
+            returnMoney = 200;
+        }
+        else if (ST.Money <= 199)
+        {
+            NotenoughMoney();
+        }
+    }
+
     public void PlaceLightning()
     {
         if (PS == null)
@@ -100,7 +100,7 @@ public class shop : MonoBehaviour
             PS = GameObject.FindGameObjectWithTag("Grid").GetComponent<Placement>();
         }
 
-        if (ST.Money > 275)
+        if (ST.Money > 274)
         {
             BM.Bal = true;
             BM.SetTurretToBuild(BM.Lightningturret);

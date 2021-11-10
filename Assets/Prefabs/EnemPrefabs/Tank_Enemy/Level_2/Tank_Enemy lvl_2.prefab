@@ -60,6 +60,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7756362621950816990, guid: f27aa5d8022a3094083c38b56734be21, type: 3}
+      propertyPath: health
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7756362621950816990, guid: f27aa5d8022a3094083c38b56734be21, type: 3}
       propertyPath: startSpeed
       value: 3
       objectReference: {fileID: 0}

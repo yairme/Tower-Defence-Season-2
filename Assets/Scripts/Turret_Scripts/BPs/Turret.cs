@@ -42,7 +42,7 @@ public class Turret : MonoBehaviour
                 nearestEnemy = enemy;
             }
         }
-        if (nearestEnemy != null && ShortestDistance <= range / 1)
+        if (nearestEnemy != null && ShortestDistance <= range / 2)
         {
             target = nearestEnemy.transform;
             targetEnemy = nearestEnemy.GetComponent<Enemy_AI>();
@@ -50,6 +50,7 @@ public class Turret : MonoBehaviour
         else
         {
             target = null;
+            targetEnemy = null;
         }
     }
 
@@ -64,6 +65,6 @@ public class Turret : MonoBehaviour
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, range / 1);
+        Gizmos.DrawSphere(transform.position, range / 2);
     }
 }

@@ -28,11 +28,6 @@ public class Placement : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (turret != null)
-        {
-            BM.upGrade.SetActive(true);
-            return;
-        }
         if (BM.Bal == false)
             return;
         if(BM.instance.Getturrettobuild() == null)

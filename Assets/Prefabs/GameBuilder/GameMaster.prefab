@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8253717131030894679}
   - component: {fileID: -1868838496019000240}
   - component: {fileID: 6480908126761731125}
+  - component: {fileID: 1547844868992063766}
+  - component: {fileID: 2236744201278877411}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: GM
@@ -80,18 +82,30 @@ MonoBehaviour:
     rate: 2
     enemy:
     - {fileID: 7823449718504172772, guid: ddaeb0a2dd97d8b45945f979d2a348a3, type: 3}
-  - count: 0
-    rate: 0
-    enemy: []
-  - count: 0
-    rate: 0
-    enemy: []
-  - count: 0
-    rate: 0
-    enemy: []
-  - count: 0
-    rate: 0
-    enemy: []
+  - count: 5
+    rate: 2
+    enemy:
+    - {fileID: 7756362621950816987, guid: f27aa5d8022a3094083c38b56734be21, type: 3}
+  - count: 2
+    rate: 4
+    enemy:
+    - {fileID: 2817422920041778732, guid: c194e0d1897d4f84582a95beb51d1c08, type: 3}
+  - count: 10
+    rate: 3
+    enemy:
+    - {fileID: 7823449718504172772, guid: ddaeb0a2dd97d8b45945f979d2a348a3, type: 3}
+    - {fileID: 7756362621950816987, guid: f27aa5d8022a3094083c38b56734be21, type: 3}
+  - count: 10
+    rate: 4
+    enemy:
+    - {fileID: 7756362621950816987, guid: f27aa5d8022a3094083c38b56734be21, type: 3}
+    - {fileID: 2817422920041778732, guid: c194e0d1897d4f84582a95beb51d1c08, type: 3}
+  - count: 10
+    rate: 4
+    enemy:
+    - {fileID: 7823449718504172772, guid: ddaeb0a2dd97d8b45945f979d2a348a3, type: 3}
+    - {fileID: 7756362621950816987, guid: f27aa5d8022a3094083c38b56734be21, type: 3}
+    - {fileID: 2817422920041778732, guid: c194e0d1897d4f84582a95beb51d1c08, type: 3}
   spawnPoint: {fileID: 0}
   timeBetweenWaves: 10
   waveNumber: 0
@@ -110,18 +124,11 @@ MonoBehaviour:
   instance: {fileID: 0}
   i: 0
   Bal: 0
-  standardturret: {fileID: 0}
-  laserturret: {fileID: 0}
-  Missileturret: {fileID: 0}
-  Lightningturret: {fileID: 0}
-  standardturret_2: {fileID: 0}
-  laserturret_2: {fileID: 0}
-  Missileturret_2: {fileID: 0}
-  Lightningturret_2: {fileID: 0}
-  standardturret_3: {fileID: 0}
-  laserturret_3: {fileID: 0}
-  Missileturret_3: {fileID: 0}
-  Lightningturret_3: {fileID: 0}
+  upGrade: {fileID: 0}
+  standardturret: {fileID: 7518518312852486298, guid: b3b4271c67ca1174682269082939ab30, type: 3}
+  laserturret: {fileID: 8289445836569037064, guid: 300fbf1bf1ea4024f9da93cb4739685c, type: 3}
+  Missileturret: {fileID: 337467446372177839, guid: 0e9d2609ff6600247853c97d998724e5, type: 3}
+  Lightningturret: {fileID: 1062120108825647977, guid: 700d26d547aaf6240aedde3fe46af66d, type: 3}
 --- !u!114 &6480908126761731125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,3 +144,33 @@ MonoBehaviour:
   moneyText: {fileID: 0}
   liveText: {fileID: 0}
   Wave: {fileID: 0}
+--- !u!114 &1547844868992063766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4272967072352360368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914c889ad18f3cd499b80948217ed54c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameIsPaused: 0
+  PausedMenu: 0
+  pausetext: {fileID: 0}
+  pausemenu: {fileID: 0}
+  alreadypausedB: 0
+--- !u!114 &2236744201278877411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4272967072352360368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe903f1a01788014196c325457b05655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausetext: {fileID: 0}

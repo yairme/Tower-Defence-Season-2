@@ -33,11 +33,16 @@ public class ChainLightning : Turret
     {
         int counter = 0;
 
-        while (counter < DamageTicks)
+        while (counter < DamageTicks && targetEnemy != null)
         {
-            targetEnemy.TakeDamage(Damage);
+            DoDamage();
             counter++;
             yield return new WaitForSeconds(2f);
         }
+    }
+
+    void DoDamage()
+    {
+        targetEnemy.TakeDamage(Damage);
     }
 }

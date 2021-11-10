@@ -14,6 +14,14 @@ public class WaveSpawner : MonoBehaviour
 
     public float timeBetweenWaves = 10f;
     private float countdown = 6f;
+    private int _flashes = 3;
+
+    [HideInInspector] public bool started = false;
+
+    [Header("Visual")]
+    public GameObject warning;
+
+    private bool isNextWave = true;
 
     [HideInInspector] public int waveNumber = 0;
 
@@ -35,21 +43,39 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
-        if (countdown <= 0f)
+        if (started)
         {
-            if (GM.gameEnded)
+            if (countdown <= 0f)
+            {
+                if (GM.gameEnded)
+                    return;
+                if (!isNextWave)
+                {
+                    Warning();
+                    isNextWave = true;
+                }
+                StartCoroutine(SpawnWave());
+                countdown = timeBetweenWaves;
                 return;
-            StartCoroutine(SpawnWave());
-            countdown = timeBetweenWaves;
-            return;
+            }
+            else
+            {
+                if (isNextWave)
+                {
+                    Warning();
+                    isNextWave = false;
+                }
+            }
         }
+        if (started)
+        {
+            countdown -= Time.deltaTime;
 
-        countdown -= Time.deltaTime;
-
-        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+            countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+        }
     }
 
-    private IEnumerator SpawnWave() 
+    private IEnumerator SpawnWave()
     {
         Wave wave = waves[waveNumber];
 
@@ -69,9 +95,32 @@ public class WaveSpawner : MonoBehaviour
         waveNumber++;
     }
 
+    public void Warning()
+    {
+        if (isNextWave == false)
+        {
+            warning.SetActive(false);
+        }
+        else
+        {
+            StartCoroutine(WaveWarning());
+        }
+    }
+
     private void SpawnEnemy(GameObject enemy)
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         EnemiesAlive++;
+    }
+
+    private IEnumerator WaveWarning()
+    {
+        for (int i = 0; i < _flashes; i++)
+        {
+            warning.SetActive(true);
+            yield return new WaitForSeconds(2f);
+            warning.SetActive(false);
+            yield return new WaitForSeconds(1f);
+        }
     }
 }

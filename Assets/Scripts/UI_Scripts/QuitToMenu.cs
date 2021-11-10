@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class QuitToMenu : MonoBehaviour
 {
-    private pause GM;
+    private Pause GM;
     public GameObject A;
     public GameObject B;
 
     private void Start()
     {
-        GM = GameObject.FindWithTag("GM").GetComponent<pause>();
+        GM = GameObject.FindWithTag("GM").GetComponent<Pause>();
     }
 
     public void Quit()

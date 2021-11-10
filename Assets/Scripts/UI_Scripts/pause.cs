@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pause : MonoBehaviour
+public class Pause : MonoBehaviour
 {
     public bool gameIsPaused;
     public bool PausedMenu;
@@ -10,9 +10,16 @@ public class pause : MonoBehaviour
     public GameObject pausetext;
     public GameObject pausemenu;
 
-    private bool alreadypausedA = false;
+    protected bool alreadypausedA = false;
     [HideInInspector] public bool alreadypausedB = false;
 
+    public GameObject toStart;
+    private WaveSpawner WP;
+
+    public void Start()
+    {
+        WP = GameObject.FindWithTag("GM").GetComponent<WaveSpawner>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)&&!alreadypausedB)
@@ -32,8 +39,7 @@ public class pause : MonoBehaviour
             alreadypausedB = !alreadypausedB;
         }
     }
-
-    void PauseGame()
+    public void PauseGame()
     {
         if (gameIsPaused)
         {
@@ -46,8 +52,8 @@ public class pause : MonoBehaviour
             Time.timeScale = 1;
         }
     }
-    
-    void PausingMenu()
+
+    public void PausingMenu()
     {
         if (PausedMenu)
         {
@@ -59,5 +65,11 @@ public class pause : MonoBehaviour
             pausemenu.SetActive(false);
             Time.timeScale = 1;
         }
+    }
+
+    public void StartGame()
+    {
+        WP.started = true;
+        toStart.SetActive(false);
     }
 }
