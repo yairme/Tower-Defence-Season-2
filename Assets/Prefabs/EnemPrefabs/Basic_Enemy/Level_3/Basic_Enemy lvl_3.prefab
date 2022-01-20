@@ -17,11 +17,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3812294464263652549, guid: b297ed098f01eb44998a4c88e061f41a, type: 3}
       propertyPath: health
-      value: 150
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3812294464263652549, guid: b297ed098f01eb44998a4c88e061f41a, type: 3}
       propertyPath: startSpeed
-      value: 4.3
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 3812294464263652549, guid: b297ed098f01eb44998a4c88e061f41a, type: 3}
       propertyPath: startHealth
