@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class Projectiel : Turret
 {
-    private void Update()
+    
+    [SerializeField] protected GameObject bulletPrefab;
+    
+    public override void Update()
     {
-
+        base.Update();
+        
         LockOnTarget();
 
         if (fireCountdown <= 0f)
         {
             Shoot();
-            fireCountdown = 1f / fireRate;
+            fireCountdown = _fireCountdown / fireRate;
         }
         fireCountdown -= Time.deltaTime;
     }
 
-    public void Shoot()
+    private void Shoot()
     {
-        GameObject bulletGO = (GameObject)Instantiate(bulletprefab, firepoint.position, firepoint.rotation);
-        Bullet_BP bullet = bulletGO.GetComponent<Bullet_BP>();
+        var bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        var bullet = bulletGo.GetComponent<Bullet_BP>();
 
-        if (bullet != null)
-            bullet.Seek(target);
+        if (bullet != null && Vector3.Distance(Target.transform.position, transform.position) < range)
+            bullet.Seek(Target);
     }
 }

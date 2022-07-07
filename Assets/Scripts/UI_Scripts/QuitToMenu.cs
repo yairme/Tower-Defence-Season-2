@@ -24,14 +24,14 @@ public class QuitToMenu : MonoBehaviour
     public void ReLoad()
     {
         
-        GM.PausedMenu = !GM.PausedMenu;
+        GM.pausedMenu = !GM.pausedMenu;
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
         Time.timeScale = 1f;
         GM.alreadypausedB = !GM.alreadypausedB;
     }
     public void Resume()
     {
-        GM.PausedMenu = !GM.PausedMenu;
+        GM.pausedMenu = !GM.pausedMenu;
         B.SetActive(false);
         Time.timeScale = 1;
         GM.alreadypausedB = !GM.alreadypausedB;

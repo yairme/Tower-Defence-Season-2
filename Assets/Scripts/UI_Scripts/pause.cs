@@ -5,12 +5,12 @@ using UnityEngine;
 public class Pause : MonoBehaviour
 {
     public bool gameIsPaused;
-    public bool PausedMenu;
+    public bool pausedMenu;
 
     public GameObject pausetext;
     public GameObject pausemenu;
 
-    protected bool alreadypausedA = false;
+    private bool _alreadypausedA;
     [HideInInspector] public bool alreadypausedB = false;
 
     public GameObject toStart;
@@ -20,26 +20,28 @@ public class Pause : MonoBehaviour
     {
         WP = GameObject.FindWithTag("GM").GetComponent<WaveSpawner>();
     }
-    void Update()
+
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)&&!alreadypausedB)
         {
-            if (alreadypausedB == true)
+            if (alreadypausedB)
                 return;
             gameIsPaused = !gameIsPaused;
             PauseGame();
-            alreadypausedA = !alreadypausedA;
+            _alreadypausedA = !_alreadypausedA;
         }
-        if (Input.GetKeyDown(KeyCode.Escape)&&!alreadypausedA)
+        if (Input.GetKeyDown(KeyCode.Escape)&&!_alreadypausedA)
         {
-            if (alreadypausedA == true)
+            if (_alreadypausedA)
                 return;
-            PausedMenu = !PausedMenu;
+            pausedMenu = !pausedMenu;
             PausingMenu();
             alreadypausedB = !alreadypausedB;
         }
     }
-    public void PauseGame()
+
+    private void PauseGame()
     {
         if (gameIsPaused)
         {
@@ -53,9 +55,9 @@ public class Pause : MonoBehaviour
         }
     }
 
-    public void PausingMenu()
+    private void PausingMenu()
     {
-        if (PausedMenu)
+        if (pausedMenu)
         {
             pausemenu.SetActive(true);
             Time.timeScale = 0f;

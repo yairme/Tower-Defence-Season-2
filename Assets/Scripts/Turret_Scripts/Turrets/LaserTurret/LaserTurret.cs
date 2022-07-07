@@ -7,35 +7,35 @@ public class LaserTurret : Turret
     public int damageOverTime = 30;
     public float slowPct = .5f;
 
-    private void Update()
+    public override void Update()
     {
-        if (targetEnemy == null || target == null)
+        if (TargetEnemy == null || Target == null)
         {
             if (lineRenderer.enabled)
                 lineRenderer.enabled = false;
             return;
         }
 
-        LockOnTarget();
         Laser();
     }
 
     private void Laser()
     {
-        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
-        targetEnemy.Slow(slowPct);
+        TargetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+        TargetEnemy.Slow(slowPct);
 
         if (!lineRenderer.enabled)
             lineRenderer.enabled = true;
 
-        lineRenderer.SetPosition(0, firepoint.position);
-        lineRenderer.SetPosition(1, target.position);
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, Target.position);
     }
-    public override void LockOnTarget()
+    
+    protected override void LockOnTarget()
     {
-        if (target == null)
+        if (Target == null)
             return;
 
-        Debug.DrawLine(transform.position, target.position);
+        Debug.DrawLine(transform.position, Target.position);
     }
 }

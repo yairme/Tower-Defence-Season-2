@@ -1,39 +1,35 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ChainLightning : Turret
 {
     [Header("Lightning Tower Atributes")]
     public ParticleSystem ps;
-    public float Damage, DamageTicks;
 
-    private void Update()
+    [SerializeField] private float damage; 
+    [SerializeField] private float damageTicks;
+
+    public override void Update()
     {
-        if (targetEnemy == null || target == null)
-        {
-            return;
-        }
-
-        LockOnTarget();
+        base.Update(); 
         Lightning();
     }
 
-    public void Lightning()
+    private void Lightning()
     {
         if (fireCountdown <= 0f)
         {
             StartCoroutine(DamageTick());
-            fireCountdown = 1f / fireRate;
+            fireCountdown = _fireCountdown / fireRate;
         }
         fireCountdown -= Time.deltaTime;
     }
 
-    public IEnumerator DamageTick()
+    private IEnumerator DamageTick()
     {
-        int counter = 0;
+        var counter = 0;
 
-        while (counter < DamageTicks && targetEnemy != null)
+        while (counter < damageTicks && TargetEnemy != null)
         {
             DoDamage();
             counter++;
@@ -41,8 +37,8 @@ public class ChainLightning : Turret
         }
     }
 
-    void DoDamage()
+    private void DoDamage()
     {
-        targetEnemy.TakeDamage(Damage);
+        TargetEnemy.TakeDamage(damage);
     }
 }

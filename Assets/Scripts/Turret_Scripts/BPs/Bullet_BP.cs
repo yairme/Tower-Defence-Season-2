@@ -1,42 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEditor;
 using UnityEngine;
 
 public class Bullet_BP : MonoBehaviour
 {
-    protected Transform target;
-    public int damage;
-    public float speed;
-
+    private Transform target;
+    [SerializeField] private int damage;
+    [SerializeField] private float speed;
+    
     [Header("For Rockets")]
-    public float Explosion;
+    [SerializeField] private float explosion;
 
-    public void Seek(Transform _target)
+    public void Seek(Transform target)
     {
-        target = _target;
-    }
-
-    protected void Damage(Transform enemy)
-    {
-        Enemy_AI EN = enemy.GetComponent<Enemy_AI>();
-
-        if (EN != null)
-        {
-            EN.TakeDamage(damage);
-            Destroy(this.gameObject);
-        }
+        this.target = target;
     }
 
     protected void Update()
     {
+
         if (target == null)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
-
-        Vector3 dir = target.position - transform.position;
-        float distanceThisFrame = speed / 1 * Time.deltaTime;
+        
+        var dir = target.position - transform.position;
+        var distanceThisFrame = speed / 1 * Time.deltaTime;
 
         if (dir.magnitude <= distanceThisFrame)
         {
@@ -49,32 +41,43 @@ public class Bullet_BP : MonoBehaviour
         transform.right = target.position - transform.position;
     }
 
-    protected void HitTarget()
+    private void HitTarget()
     {
-        if (Explosion > 0)
+        if (explosion > 0)
         {
-            Explode(transform.position, Explosion);
+            Explode(transform.position, explosion);
         }
         else
         {
             Damage(target);
         }
     }
-    protected void Explode(Vector3 center, float radius)
+
+    private void Explode(Vector3 center, float radius)
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, radius);
-        foreach (Collider2D collider in hitColliders)
+        var hitColliders = Physics2D.OverlapCircleAll(center, radius);
+        foreach (var collider in hitColliders)
         {
-            if (collider.tag == "Enemy")
+            if (collider.CompareTag("Enemy"))
             {
                 Damage(collider.transform);
             }
         }
     }
+    
+    private void Damage(Transform enemy)
+    {
+        var EN = enemy.GetComponent<Enemy_AI>();
+
+        if (EN == null) return;
+        EN.TakeDamage(damage);
+        Destroy(gameObject);
+    }
+
 
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, Explosion);
+        Gizmos.DrawWireSphere(transform.position, explosion);
     }
 }

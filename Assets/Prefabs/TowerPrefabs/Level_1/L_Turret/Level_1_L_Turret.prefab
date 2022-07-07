@@ -575,10 +575,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 8
   fireRate: 1
+  fireCountdown: 0
   enemyTag: Enemy
-  PartToRotate: {fileID: 0}
-  firepoint: {fileID: 5665584148770372862}
-  bulletprefab: {fileID: 0}
+  partToRotate: {fileID: 0}
+  firePoint: {fileID: 5665584148770372862}
   lineRenderer: {fileID: 1250369419109485446}
   damageOverTime: 10
   slowPct: 0.5
